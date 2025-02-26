@@ -528,6 +528,63 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+    section {
+        padding: 60px 0;
+    }
+
+    .hero {
+        padding: 160px 0 80px;
+    }
+
+    .hero h2 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1.1em;
+    }
+
+    .upload-section {
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) auto 0;
+    }
+
+    .tech-features,
+    .stats-grid,
+    .advantage-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .industry-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-text,
+    .about-image {
+        flex: none;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .feature-item,
+    .stat-item,
+    .advantage-item,
+    .industry-item {
+        padding: 20px;
+    }
+
     .mobile-menu-btn {
         display: block;
         margin-left: 15px;
@@ -535,6 +592,8 @@ p {
 
     .left-section {
         flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
     }
 
     .logo h1 {
@@ -561,6 +620,8 @@ p {
     .nav ul {
         flex-direction: column;
         gap: 15px;
+        margin: 0;
+        padding: 0;
     }
 
     .nav ul li {
@@ -569,60 +630,59 @@ p {
 
     .nav ul li a {
         display: block;
-        padding: 10px;
+        padding: 12px;
         text-align: center;
+        font-size: 16px;
     }
 
     .right-section {
-        margin-left: auto;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
         gap: 10px;
     }
 
     .language-selector {
-        margin-right: 5px;
+        margin-right: 10px;
     }
 
     .language-btn {
-        padding: 4px 8px;
-        min-width: 80px;
+        padding: 6px 10px;
+        min-width: auto;
         font-size: 14px;
+    }
+
+    .language-btn .current-lang {
+        display: none;
     }
 
     .login-btn {
-        padding: 4px 12px;
+        padding: 6px 12px;
         font-size: 14px;
     }
 
-    .hero h2 {
-        font-size: 2em;
-    }
-
-    .stats-grid,
-    .advantage-grid,
-    .industry-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .tech-features {
-        grid-template-columns: 1fr;
-    }
-
-    .case-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-content {
-        flex-direction: column;
-        gap: 30px;
+    .language-dropdown {
+        right: -10px;
     }
 }
 
 @media screen and (max-width: 480px) {
+    .tech-features,
     .stats-grid,
     .advantage-grid,
     .industry-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 1.8em;
+    }
+
+    .hero p {
+        font-size: 1em;
     }
 
     .hero {
