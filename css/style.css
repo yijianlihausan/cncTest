@@ -588,10 +588,15 @@ p {
         margin-bottom: 30px;
     }
 
-    .feature-item,
     .stat-item,
-    .advantage-item,
-    .industry-item {
+    .industry-item{
+        padding: 24px;
+        margin-bottom: 15px;
+    }
+
+    .feature-item,
+    .advantage-item
+     {
         padding: 24px;
         margin-bottom: 15px;
         min-height: 180px;
@@ -790,10 +795,16 @@ p {
 }
 
 @media screen and (max-width: 480px) {
+    .industry-grid,
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+    }
+    .stat-item{
+        min-width: 100px;
+    }
     .tech-features,
-    .stats-grid,
-    .advantage-grid,
-    .industry-grid {
+    .advantage-grid
+     {
         grid-template-columns: 1fr;
     }
 
@@ -1032,6 +1043,7 @@ p {
 }
 
 @media screen and (max-width: 480px) {
+
     .container {
         padding: 0 20px;
     }
