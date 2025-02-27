@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const languageDropdown = document.getElementById('languageDropdown');
     const currentLang = document.querySelector('.current-lang');
     const langIcon = document.querySelector('.language-btn .lang-icon');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
     
     // 从本地存储获取语言设置，默认为中文
     let currentLanguage = localStorage.getItem('language') || 'zh';
@@ -34,30 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
         currentLanguage = lang;
         localStorage.setItem('language', lang);
         currentLang.textContent = lang === 'zh' ? '中文' : 'English';
-        // 更新语言图标
         langIcon.src = lang === 'zh' ? './img/zh-cn.png' : './img/en-us.png';
         langIcon.alt = lang === 'zh' ? '中文' : 'English';
-        // 这里可以添加更多的语言切换逻辑
     }
     
     // 初始化语言设置
     switchLanguage(currentLanguage);
 
-    // 节流函数
-    function throttle(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments;
-            const context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        }
-    }
-
-    // 导航栏滚动效果 - 移除隐藏行为，保持始终显示
+    // 导航栏保持显示
     const header = document.querySelector('.header');
     header.style.transform = 'translateY(0)';
 
@@ -75,18 +61,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 表单提交处理
     const contactForm = document.querySelector('.contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // 获取表单数据
-        const formData = new FormData(this);
-        const data = {};
-        formData.forEach((value, key) => data[key] = value);
-
-        // 这里可以添加表单数据的发送逻辑
-        alert('感谢您的咨询，我们会尽快与您联系！');
-        this.reset();
-    });
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+            alert('感谢您的咨询，我们会尽快与您联系！');
+            this.reset();
+        });
+    }
 
     // 添加滚动动画
     const sections = document.querySelectorAll('section');
@@ -109,12 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
         section.style.transition = 'all 0.5s ease-out';
         sectionObserver.observe(section);
     });
-});
-// 移动端菜单控制
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mainNav = document.getElementById('mainNav');
 
+    // 移动端菜单控制
     if (mobileMenuBtn && mainNav) {
         mobileMenuBtn.addEventListener('click', function() {
             mainNav.classList.toggle('active');
